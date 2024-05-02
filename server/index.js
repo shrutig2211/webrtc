@@ -1,8 +1,14 @@
 const { Server } = require("socket.io");
+require("dotenv").config();
 
-const io = new Server(8000, {
+const port = process.env.PORT;
+
+
+const io = new Server(port , {
   cors: true,
 });
+
+console.log(port);
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
